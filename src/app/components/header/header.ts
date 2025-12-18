@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
+show = signal(false);
+  navigations = [
+    {
+      path: '#',
+      name: 'Liste des cocktails',
+    },
+    {
+      path: '#',
+      name: 'Panier',
+    },
+  ];
 
+  toggleMenu(){
+    this.show.update((s)=> !s)
+  }
 }
